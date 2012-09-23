@@ -34,11 +34,11 @@ App.UI.app = {
 				return;
 			}
 			//Ti.API.info("1 -> "+JSON.stringify(this.responseText));
-			var data = JSON.parse(this.responseText);
+			//var data = JSON.parse(this.responseText);
 			
 			// LOGIN
 			
-			/*var data = [
+			var data = [
 			{
 				id:1,
 				title:"Empleo",
@@ -74,7 +74,7 @@ App.UI.app = {
 						}
 						]
 			}
-			];*/
+			];
 		
 			mainWin.open();
 			var menuData = [];
