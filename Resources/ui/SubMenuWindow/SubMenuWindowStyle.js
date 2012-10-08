@@ -15,8 +15,7 @@ App.UI.subMenu.style = {
   	
   },
   subMenuTable:{
-  	
+  	bottom:40
   }
 
-  
 };

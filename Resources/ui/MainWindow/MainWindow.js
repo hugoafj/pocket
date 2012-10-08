@@ -14,6 +14,7 @@ App.UI.app = {
 		var navBar					= Ti.UI.iPhone.createNavigationGroup();
 		var win						= Ti.UI.createWindow(style.win);
 		var menuTable				= Ti.UI.createTableView(style.menuTable);
+		var data					= [];
 		
 	// STYLING
 		navBar.window = win;
@@ -38,7 +39,7 @@ App.UI.app = {
 			
 			// LOGIN
 			
-			var data = [
+			data = [
 			{
 				id:1,
 				title:"Empleo",
@@ -46,6 +47,19 @@ App.UI.app = {
 						{
 							id:1,
 							title:"Poblacion ocupada Naciona vs Jalisco",
+							years:	[{
+										year:"2005",
+										data:"10,000"
+									},{
+										year:"2006",
+										data:"8,000"
+									},{
+										year:"2007",
+										data:"6,000"
+									},{
+										year:"2008",
+										data:"4,000"
+									}],
 							submenu:[
 									{	
 										id:1,
@@ -59,7 +73,37 @@ App.UI.app = {
 						},
 						{
 							id:2,
-							title:"Trabajadores Asegurados Jalisco"
+							title:"Trabajadores Asegurados Jalisco",
+							years:	[{
+										year:"2005",
+										data:"10,000"
+									},{
+										year:"2006",
+										data:"8,000"
+									},{
+										year:"2007",
+										data:"N/A"
+									},{
+										year:"2008",
+										data:"4,000"
+									}],
+						},
+						{
+							id:3,
+							title:"Tasa de desocupación",
+							years:	[{
+										year:"2005",
+										data:"10,000"
+									},{
+										year:"2006",
+										data:"N/A"
+									},{
+										year:"2007",
+										data:"6,000"
+									},{
+										year:"2008",
+										data:"4,000"
+									}],
 						}
 						
 						]
@@ -87,8 +131,6 @@ App.UI.app = {
 			menuTable.setData(menuData);
 			// LOGIC END
 			
-	
-	
 		}
 		anXhr.onerror = function() {
 			alert('The HTTP request failed');
@@ -100,8 +142,8 @@ App.UI.app = {
 		
 	// LISTENERS
 		menuTable.addEventListener('click',function(e){
-			//Ti.API.info(JSON.stringify(e));
-			navBar.open(App.UI.subMenu.init(data[e.index].submenu),{animated:true});
+			Ti.API.info(JSON.stringify(e));
+			navBar.open(App.UI.subMenu.init(data[e.index].submenu,data[e.index].title),{animated:true});
 			
 		});
 	

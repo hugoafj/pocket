@@ -14,5 +14,4 @@ App.UI.app.style = {
   menuTable:{
   	
   }
-  
 };
