@@ -36,11 +36,13 @@ App.UI.subMenu = {
 				var tempRow = Ti.UI.createTableViewRow();
 				tempRow.add(label);
 				tempRow.add(labelTitle);
+				tempRow.data = _data[i].years;
 				subMenuData.push(tempRow);
 			}else{
 				var tempRow = Ti.UI.createTableViewRow();
 				tempRow.add(label);
 				tempRow.add(labelTitle);
+				tempRow.data = _data[i].years;
 				subMenuData.push(tempRow);
 			}
 		}
@@ -65,11 +67,13 @@ App.UI.subMenu = {
 						var tempRow = Ti.UI.createTableViewRow();
 						tempRow.add(label);
 						tempRow.add(labelTitle);
+						tempRow.data = _data[i].years;
 						subMenuData.push(tempRow);
 					}else{
 						var tempRow = Ti.UI.createTableViewRow();
 						tempRow.add(label);
 						tempRow.add(labelTitle);
+						tempRow.data = _data[i].years;
 						subMenuData.push(tempRow);
 					}
 				}
@@ -100,11 +104,13 @@ App.UI.subMenu = {
 						var tempRow = Ti.UI.createTableViewRow();
 						tempRow.add(label);
 						tempRow.add(labelTitle);
+						tempRow.data = _data[i].years;
 						subMenuData.push(tempRow);
 					}else{
 						var tempRow = Ti.UI.createTableViewRow();
 						tempRow.add(label);
 						tempRow.add(labelTitle);
+						tempRow.data = _data[i].years;
 						subMenuData.push(tempRow);
 					}
 				}
@@ -124,8 +130,27 @@ App.UI.subMenu = {
 		
 		
 	// LISTENERS
+		subMenuTable.addEventListener("click",function(_event){
+			if(_event.index >= 0){
+				var dialog = Titanium.UI.createOptionDialog({
+		    		options: ['Ver Grafica','Ver Detalles','Cancel'],
+		    		cancel:2
+		    	});
+				dialog.show();
+				dialog.addEventListener('click',function(e){
+					if(e.index == 0){
+						 // Grafica
+						 //Ti.API.info(JSON.stringify(_event.row.data));
+						 App.UI.navBar.open(App.UI.chart.init(_event.row.data),{animated:true});
+						
+					}else if(e.index == 1){
+						// Comparativo
 	
-	
+					}
+				});	
+			}
+		});
+		
 	
 	
 	

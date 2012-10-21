@@ -11,16 +11,16 @@ App.UI.app = {
 	// INSTANTIATION
 		var style					= App.UI.app.style;
 		var mainWin					= Ti.UI.createWindow(style.mainWin);
-		var navBar					= Ti.UI.iPhone.createNavigationGroup();
+		App.UI.navBar				= Ti.UI.iPhone.createNavigationGroup();
 		var win						= Ti.UI.createWindow(style.win);
 		var menuTable				= Ti.UI.createTableView(style.menuTable);
 		var data					= [];
 		
 	// STYLING
-		navBar.window = win;
+		App.UI.navBar.window = win;
 		
 	// ADDITIONS  
-		mainWin.add(navBar);
+		mainWin.add(App.UI.navBar);
 		win.add(menuTable);
 		
 	// CODE
@@ -34,8 +34,8 @@ App.UI.app = {
 				alert('The HTTP request failed');
 				return;
 			}
-			//Ti.API.info("1 -> "+JSON.stringify(this.responseText));
-			//var data = JSON.parse(this.responseText);
+			Ti.API.info("1 -> "+JSON.stringify(this.responseText));
+			//data = JSON.parse(this.responseText);
 			
 			// LOGIN
 			
@@ -49,16 +49,16 @@ App.UI.app = {
 							title:"Poblacion ocupada Naciona vs Jalisco",
 							years:	[{
 										year:"2005",
-										data:"10,000"
+										data:"150"
 									},{
 										year:"2006",
-										data:"8,000"
+										data:"30"
 									},{
 										year:"2007",
-										data:"6,000"
+										data:"10"
 									},{
 										year:"2008",
-										data:"4,000"
+										data:"5"
 									}],
 							submenu:[
 									{	
@@ -82,7 +82,7 @@ App.UI.app = {
 										data:"8,000"
 									},{
 										year:"2007",
-										data:"N/A"
+										data:"0"
 									},{
 										year:"2008",
 										data:"4,000"
@@ -96,7 +96,7 @@ App.UI.app = {
 										data:"10,000"
 									},{
 										year:"2006",
-										data:"N/A"
+										data:"0"
 									},{
 										year:"2007",
 										data:"6,000"
@@ -136,14 +136,14 @@ App.UI.app = {
 			alert('The HTTP request failed');
 		}
 		
-		anXhr.open("GET","http://www.seijal.gob.mx/p/salidajson.php");
+		anXhr.open("GET","http://www.seijal.gob.mx/p/salidajson_pocket.php");
 		anXhr.send();
 	
 		
 	// LISTENERS
 		menuTable.addEventListener('click',function(e){
 			Ti.API.info(JSON.stringify(e));
-			navBar.open(App.UI.subMenu.init(data[e.index].submenu,data[e.index].title),{animated:true});
+			App.UI.navBar.open(App.UI.subMenu.init(data[e.index].submenu,data[e.index].title),{animated:true});
 			
 		});
 	
