@@ -2,7 +2,10 @@ Ti.include(
 	DIR + "ui/MainWindow/MainWindow.js",
 	DIR + "ui/MainWindow/MainWindowStyle.js",
 	DIR + "ui/ChartWindow/ChartWindow.js",
-	DIR + "ui/ChartWindow/ChartWindowStyle.js"
+	DIR + "ui/ChartWindow/ChartWindowStyle.js",
+	DIR + "ui/TabulateWindow/TabulateWindow.js",
+	DIR + "ui/TabulateWindow/TabulateWindowStyle.js",
+	DIR + "Database_Api/API_db.js"
 	
 );
 if(Titanium.Platform.osname == "ipad"){

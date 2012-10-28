@@ -1,20 +1,18 @@
 /*
  * Hugo Flores <harmando@itexico.com>
- * Sep, 2012
+ * oct, 2012
  */
-App.UI.subMenu.style = {
+App.UI.tabulate.style = {
   PORTRAIT: {},
   LANDSCAPE: {},
-  mainWin:{
-  },
   win:{
-  	title:"SubMenu",
+  	title:"Tabulador",
   	backgroundColor:"white"
   },
-  menuTable:{
-  	
-  },
-  subMenuTable:{
+  tabulateTable:{
+  	left:0,
+  	top:0,
+  	right:0,
   	bottom:0
   }
 

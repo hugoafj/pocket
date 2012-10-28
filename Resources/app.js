@@ -11,4 +11,5 @@ Ti.include(
 	"/cfg/cfg_includes.js"
 );
 
+App.API.DB.init(function(){});
 App.UI.app.init();
